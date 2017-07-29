@@ -10,11 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use AdvancedELOQUENT\Book;
 
 Route::get('/', function () {
-    return AdvancedELOQUENT\Book::all();
+    $books = Book::get();
+    return view('destroy', compact('books'));
 });
 
+Route::delete('destroy', function(Illuminate\Http\Request $request){
+	$ids = $request->get('ids');
+	if(count($ids)){
+		Book::destroy($ids);
+	}	
+
+	return back();
+
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
