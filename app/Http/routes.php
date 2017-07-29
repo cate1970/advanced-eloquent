@@ -11,10 +11,12 @@
 |
 */
 use AdvancedELOQUENT\Book;
+use AdvancedELOQUENT\Category;
+
 
 Route::get('/', function () {
-    $books = Book::get();
-    return view('destroy', compact('books'));
+    $categories = Category::get();
+    return view('relationship', compact('categories'));
 });
 
 Route::delete('destroy', function(Illuminate\Http\Request $request){

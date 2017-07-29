@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Book extends Model
 {
     use SoftDeletes;
+
+    //belongsTo
+    public function Category(){
+    	return $this->belongsTo(Category::class);
+    }
 }
